@@ -88,6 +88,28 @@
 	<script language = "javascript">
 		random_nums = [];
 
+		repeated_nums = true;
+
+		while(repeated_nums == true){
+			repeated_nums = false;
+
+			for (let i = 0; i < 6; i++) {
+				random_nums.push(getRand(1, 47));
+			}
+			
+			sorted_random_nums = [];
+			for (i = 0; i < 5; i++) sorted_random_nums[i] = random_nums[i];
+			// sorted_random_nums = random_nums;
+
+			sorted_random_nums.sort(compare); //sort numbers
+			for (i = 1; i < 5; i++) {
+				if(sorted_random_nums[i] == sorted_random_nums[i-1]) {
+					repeated_nums = true;
+					random_nums.splice(0, 6);
+				}
+			}
+		}
+
 		for (let i = 0; i < 6; i++) {
 			random_nums.push(getRand(1, 48));
 		}
